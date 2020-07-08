@@ -7,15 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		824DD98B24B522CC00A48AB8 /* Card+Draggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824DD98A24B522CC00A48AB8 /* Card+Draggable.swift */; };
+		824DD98D24B5257500A48AB8 /* EmojiSolitarioGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824DD98C24B5257500A48AB8 /* EmojiSolitarioGame.swift */; };
 		8263C1A324B4CA1A001EF14F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C1A224B4CA1A001EF14F /* AppDelegate.swift */; };
 		8263C1A524B4CA1A001EF14F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C1A424B4CA1A001EF14F /* SceneDelegate.swift */; };
 		8263C1A724B4CA1A001EF14F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C1A624B4CA1A001EF14F /* ContentView.swift */; };
 		8263C1A924B4CA1B001EF14F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8263C1A824B4CA1B001EF14F /* Assets.xcassets */; };
 		8263C1AC24B4CA1B001EF14F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8263C1AB24B4CA1B001EF14F /* Preview Assets.xcassets */; };
 		8263C1AF24B4CA1B001EF14F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8263C1AD24B4CA1B001EF14F /* LaunchScreen.storyboard */; };
+		8263C1B724B4CB67001EF14F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C1B624B4CB67001EF14F /* Card.swift */; };
+		8263C1BA24B4CEC3001EF14F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C1B924B4CEC3001EF14F /* CardView.swift */; };
+		8263C1BC24B4D2CD001EF14F /* SolitarioGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C1BB24B4D2CD001EF14F /* SolitarioGame.swift */; };
+		826D32EB24B6706600426B61 /* Array+RemoveLast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826D32EA24B6706600426B61 /* Array+RemoveLast.swift */; };
+		82A09BA124B672D4002AEDD9 /* DroppableArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A09BA024B672D4002AEDD9 /* DroppableArea.swift */; };
+		82AACC7924B5074500047E4E /* Card+DragAndDrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AACC7824B5074500047E4E /* Card+DragAndDrop.swift */; };
+		82B11EA024B66559005A7432 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B11E9F24B66559005A7432 /* BoardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		824DD98A24B522CC00A48AB8 /* Card+Draggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+Draggable.swift"; sourceTree = "<group>"; };
+		824DD98C24B5257500A48AB8 /* EmojiSolitarioGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiSolitarioGame.swift; sourceTree = "<group>"; };
 		8263C19F24B4CA1A001EF14F /* Solitario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Solitario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8263C1A224B4CA1A001EF14F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8263C1A424B4CA1A001EF14F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +35,13 @@
 		8263C1AB24B4CA1B001EF14F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8263C1AE24B4CA1B001EF14F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8263C1B024B4CA1B001EF14F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8263C1B624B4CB67001EF14F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		8263C1B924B4CEC3001EF14F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		8263C1BB24B4D2CD001EF14F /* SolitarioGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolitarioGame.swift; sourceTree = "<group>"; };
+		826D32EA24B6706600426B61 /* Array+RemoveLast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+RemoveLast.swift"; sourceTree = "<group>"; };
+		82A09BA024B672D4002AEDD9 /* DroppableArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppableArea.swift; sourceTree = "<group>"; };
+		82AACC7824B5074500047E4E /* Card+DragAndDrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+DragAndDrop.swift"; sourceTree = "<group>"; };
+		82B11E9F24B66559005A7432 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +74,19 @@
 		8263C1A124B4CA1A001EF14F /* Solitario */ = {
 			isa = PBXGroup;
 			children = (
+				826D32E924B6702400426B61 /* Extensions */,
+				82AACC7C24B50C4F00047E4E /* Components */,
 				8263C1A224B4CA1A001EF14F /* AppDelegate.swift */,
 				8263C1A424B4CA1A001EF14F /* SceneDelegate.swift */,
 				8263C1A624B4CA1A001EF14F /* ContentView.swift */,
+				82B11EA124B66595005A7432 /* Board */,
+				8263C1BB24B4D2CD001EF14F /* SolitarioGame.swift */,
+				824DD98C24B5257500A48AB8 /* EmojiSolitarioGame.swift */,
 				8263C1A824B4CA1B001EF14F /* Assets.xcassets */,
 				8263C1AD24B4CA1B001EF14F /* LaunchScreen.storyboard */,
 				8263C1B024B4CA1B001EF14F /* Info.plist */,
 				8263C1AA24B4CA1B001EF14F /* Preview Content */,
+				8263C1B824B4CB6C001EF14F /* Card */,
 			);
 			path = Solitario;
 			sourceTree = "<group>";
@@ -73,6 +97,41 @@
 				8263C1AB24B4CA1B001EF14F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8263C1B824B4CB6C001EF14F /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				8263C1B624B4CB67001EF14F /* Card.swift */,
+				8263C1B924B4CEC3001EF14F /* CardView.swift */,
+				82AACC7824B5074500047E4E /* Card+DragAndDrop.swift */,
+				824DD98A24B522CC00A48AB8 /* Card+Draggable.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		826D32E924B6702400426B61 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				826D32EA24B6706600426B61 /* Array+RemoveLast.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		82AACC7C24B50C4F00047E4E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				82A09BA024B672D4002AEDD9 /* DroppableArea.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		82B11EA124B66595005A7432 /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				82B11E9F24B66559005A7432 /* BoardView.swift */,
+			);
+			path = Board;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,9 +205,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82B11EA024B66559005A7432 /* BoardView.swift in Sources */,
+				824DD98D24B5257500A48AB8 /* EmojiSolitarioGame.swift in Sources */,
 				8263C1A324B4CA1A001EF14F /* AppDelegate.swift in Sources */,
 				8263C1A524B4CA1A001EF14F /* SceneDelegate.swift in Sources */,
+				82A09BA124B672D4002AEDD9 /* DroppableArea.swift in Sources */,
+				826D32EB24B6706600426B61 /* Array+RemoveLast.swift in Sources */,
 				8263C1A724B4CA1A001EF14F /* ContentView.swift in Sources */,
+				8263C1B724B4CB67001EF14F /* Card.swift in Sources */,
+				8263C1BC24B4D2CD001EF14F /* SolitarioGame.swift in Sources */,
+				8263C1BA24B4CEC3001EF14F /* CardView.swift in Sources */,
+				824DD98B24B522CC00A48AB8 /* Card+Draggable.swift in Sources */,
+				82AACC7924B5074500047E4E /* Card+DragAndDrop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

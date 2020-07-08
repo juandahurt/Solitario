@@ -9,8 +9,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var game = EmojiSolitarioGame()
+    
     var body: some View {
-        Text("Hello, World!")
+        BoardView()
     }
 }
 
