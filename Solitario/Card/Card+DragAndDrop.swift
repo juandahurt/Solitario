@@ -24,6 +24,6 @@ extension Card: NSItemProviderReading {
     
     static func object(withItemProviderData data: Data, typeIdentifier: String) throws -> Card {
         let components = String(data: data, encoding: .utf8)!.split(separator: ",")
-        return Card(id: Int(components[0])!, number: Int(components[1])!, suit: .diamonds) // TODO: Pasar el tipo de suit correcto
+        return Card(id: Int(components[0])!, number: Int(components[1])!, suit: Suit.from(string: String(components[2]))!)
     }
 }

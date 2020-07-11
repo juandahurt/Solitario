@@ -8,22 +8,37 @@
 
 import Foundation
 
-final class Card: NSObject, Identifiable {
-    var id: Int
+struct Card {
     var number: Int
     var suit: Suit
     var isFaceUp: Bool
+    var location: SolitarioGame.Location
     
-    init(id: Int, number: Int, suit: Suit, isFaceUp: Bool = true) {
-        self.id = id
+    init(number: Int, suit: Suit, isFaceUp: Bool = true, location: SolitarioGame.Location) {
         self.number = number
         self.suit = suit
         self.isFaceUp = isFaceUp
+        self.location = location
     }
 }
 
 struct Suit {
     var symbol: String  // TODO: ¿De qué forma volver esto un poco más genérico?
+    
+    static func from(string: String) -> Suit? {
+        switch string {
+        case Suit.clubs.symbol:
+            return Suit.clubs
+        case Suit.diamonds.symbol:
+            return Suit.diamonds
+        case Suit.hearts.symbol:
+            return Suit.hearts
+        case Suit.spades.symbol:
+            return Suit.spades
+        default:
+            return nil
+        }
+    }
 }
 
 // MARK: - Suit list

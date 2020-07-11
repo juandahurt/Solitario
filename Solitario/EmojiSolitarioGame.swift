@@ -12,15 +12,7 @@ class EmojiSolitarioGame: ObservableObject {
     @Published private var game = SolitarioGame()
     
     func drop(card: Card, at location: SolitarioGame.Location) {
-        guard let stackIndexWhereTheCardIs = game.find(card: card) else { return }
-        switch location {
-        case .stacks(let stackIndexWhereTheCardWantsToGo):
-            game.drop(card: card, at: stackIndexWhereTheCardWantsToGo, from: stackIndexWhereTheCardIs)
-        default:
-            print("Not implemented yet!")
-        }
-//        game.stacksOfCards[stackIndexWhereTheCardIs].remove(at: 1)
-//        game.stacksOfCards[stackIndexWhereTheCardWantsToBe].append(card)
+        game.drop(card: card, at: location)
     }
     
     var stacksOfCards: [[Card]] {
