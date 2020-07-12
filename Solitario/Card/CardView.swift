@@ -19,9 +19,9 @@ struct CardView: View {
     @State private var dragState: DragState = .unknown
     
     var card: Card
-    var onEnded: ((CGPoint, Card) -> Void)?
+    var onEnded: ((Card, CGPoint) -> Void)?
     
-    var size: CGSize
+    var yOffset: CGFloat?
     
     var body: some View {
         Group {
@@ -29,6 +29,8 @@ struct CardView: View {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color.white)
+                        .background(Color.white.shadow(radius: 2))
+                        .cornerRadius(10)
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(lineWidth: 1)
                         .foregroundColor(.black)
@@ -36,18 +38,29 @@ struct CardView: View {
                         HStack {
                             Text("\(card.number)")
                                 .foregroundColor(.black)
+                                .padding(.leading, 5)
+                            Spacer()
                             Text(card.suit.symbol)
                             Spacer()
                         }
+                        Spacer()
                         Text(card.suit.symbol)
                     }
                 }
             } else {
-                RoundedRectangle(cornerRadius: 10)
-                .fill(Color.blue)
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color.blue)
+                        .background(Color.black.shadow(radius: 10))
+                        .cornerRadius(10)
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(lineWidth: 1)
+                        .foregroundColor(.white)
+                }
             }
         }
         .frame(width: 70, height: 100)
+        .offset(x: 0, y: yOffset ?? 0)
         .offset(dragAmount)
         .zIndex(dragAmount == .zero ? 0 : 1)
         .gesture(
@@ -56,7 +69,7 @@ struct CardView: View {
                 self.dragAmount = CGSize(width: $0.translation.width, height: $0.translation.height)
             }
             .onEnded() {
-                self.onEnded?($0.location, self.card)
+                self.onEnded?(self.card, $0.location)
                 self.dragAmount = .zero
             }
         )

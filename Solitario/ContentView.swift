@@ -9,10 +9,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var game = EmojiSolitarioGame()
-    
     var body: some View {
-        BoardView()
+        BoardView().environmentObject(EmojiSolitarioGame())
     }
 }
 

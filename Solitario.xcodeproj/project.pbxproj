@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8203896224BA59960068FEC0 /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8203896124BA59960068FEC0 /* DeckView.swift */; };
+		8203896424BA59B70068FEC0 /* FinalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8203896324BA59B70068FEC0 /* FinalStackView.swift */; };
 		824DD98D24B5257500A48AB8 /* EmojiSolitarioGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824DD98C24B5257500A48AB8 /* EmojiSolitarioGame.swift */; };
 		8263C1A324B4CA1A001EF14F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C1A224B4CA1A001EF14F /* AppDelegate.swift */; };
 		8263C1A524B4CA1A001EF14F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C1A424B4CA1A001EF14F /* SceneDelegate.swift */; };
@@ -17,12 +19,13 @@
 		8263C1B724B4CB67001EF14F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C1B624B4CB67001EF14F /* Card.swift */; };
 		8263C1BA24B4CEC3001EF14F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C1B924B4CEC3001EF14F /* CardView.swift */; };
 		8263C1BC24B4D2CD001EF14F /* SolitarioGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C1BB24B4D2CD001EF14F /* SolitarioGame.swift */; };
-		826D32EB24B6706600426B61 /* Array+RemoveLast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826D32EA24B6706600426B61 /* Array+RemoveLast.swift */; };
 		82A09BA324B67FA0002AEDD9 /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A09BA224B67FA0002AEDD9 /* StackView.swift */; };
 		82B11EA024B66559005A7432 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B11E9F24B66559005A7432 /* BoardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8203896124BA59960068FEC0 /* DeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckView.swift; sourceTree = "<group>"; };
+		8203896324BA59B70068FEC0 /* FinalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalStackView.swift; sourceTree = "<group>"; };
 		824DD98C24B5257500A48AB8 /* EmojiSolitarioGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiSolitarioGame.swift; sourceTree = "<group>"; };
 		8263C19F24B4CA1A001EF14F /* Solitario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Solitario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8263C1A224B4CA1A001EF14F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -35,7 +38,6 @@
 		8263C1B624B4CB67001EF14F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		8263C1B924B4CEC3001EF14F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		8263C1BB24B4D2CD001EF14F /* SolitarioGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolitarioGame.swift; sourceTree = "<group>"; };
-		826D32EA24B6706600426B61 /* Array+RemoveLast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+RemoveLast.swift"; sourceTree = "<group>"; };
 		82A09BA224B67FA0002AEDD9 /* StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
 		82B11E9F24B66559005A7432 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,7 +72,6 @@
 		8263C1A124B4CA1A001EF14F /* Solitario */ = {
 			isa = PBXGroup;
 			children = (
-				826D32E924B6702400426B61 /* Extensions */,
 				82AACC7C24B50C4F00047E4E /* Components */,
 				8263C1A224B4CA1A001EF14F /* AppDelegate.swift */,
 				8263C1A424B4CA1A001EF14F /* SceneDelegate.swift */,
@@ -104,14 +105,6 @@
 			path = Card;
 			sourceTree = "<group>";
 		};
-		826D32E924B6702400426B61 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				826D32EA24B6706600426B61 /* Array+RemoveLast.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		82AACC7C24B50C4F00047E4E /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,7 +116,9 @@
 			isa = PBXGroup;
 			children = (
 				82B11E9F24B66559005A7432 /* BoardView.swift */,
+				8203896324BA59B70068FEC0 /* FinalStackView.swift */,
 				82A09BA224B67FA0002AEDD9 /* StackView.swift */,
+				8203896124BA59960068FEC0 /* DeckView.swift */,
 			);
 			path = Board;
 			sourceTree = "<group>";
@@ -201,14 +196,15 @@
 			files = (
 				82B11EA024B66559005A7432 /* BoardView.swift in Sources */,
 				824DD98D24B5257500A48AB8 /* EmojiSolitarioGame.swift in Sources */,
+				8203896424BA59B70068FEC0 /* FinalStackView.swift in Sources */,
 				8263C1A324B4CA1A001EF14F /* AppDelegate.swift in Sources */,
 				8263C1A524B4CA1A001EF14F /* SceneDelegate.swift in Sources */,
-				826D32EB24B6706600426B61 /* Array+RemoveLast.swift in Sources */,
 				8263C1A724B4CA1A001EF14F /* ContentView.swift in Sources */,
 				8263C1B724B4CB67001EF14F /* Card.swift in Sources */,
 				8263C1BC24B4D2CD001EF14F /* SolitarioGame.swift in Sources */,
 				82A09BA324B67FA0002AEDD9 /* StackView.swift in Sources */,
 				8263C1BA24B4CEC3001EF14F /* CardView.swift in Sources */,
+				8203896224BA59960068FEC0 /* DeckView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

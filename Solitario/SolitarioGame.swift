@@ -37,12 +37,14 @@ struct SolitarioGame {
         
         for stackIndex in 0..<7 {
             var stack = [Card]()
-            for cardIndex in 2..<5 {
+            for cardIndex in -1..<stackIndex {
                 let randomIndex = Int.random(in: 0..<deckOfCards.count)
                 var card = deckOfCards.remove(at: randomIndex)
-                card.location = .stacks(stackIndex, cardIndex - 2)
+                card.isFaceUp = false
+                card.location = .stacks(stackIndex, cardIndex + 1)
                 stack.append(card)
             }
+            stack[stack.endIndex - 1].isFaceUp = true
             stacksOfCards.append(stack)
         }
     }
@@ -57,15 +59,16 @@ struct SolitarioGame {
             }
         default:
             print("Not Implemented yet!")
+            return
         }
         
         switch locationToGo {
         case .stacks(let stackIndex, _):
-            let newCard = Card(number: card.number, suit: card.suit, isFaceUp: true, location: .stacks(stackIndex, stacksOfCards[stackIndex].endIndex))
+            let newCard = Card(number: card.number, suit: card.suit, isFaceUp: true, location: .stacks(stackIndex, stacksOfCards[stackIndex].endIndex - 1))
             stacksOfCards[stackIndex].append(newCard)
         default:
             print("Not Implemented yet!")
+            return
         }
-//        stacksOfCards[card.location.0].remove(at: card.location)
     }
 }
