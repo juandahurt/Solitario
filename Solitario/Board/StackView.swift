@@ -14,7 +14,7 @@ struct StackView: View {
     @EnvironmentObject var game: EmojiSolitarioGame
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .top) {
             RoundedRectangle(cornerRadius: 10)
                 .stroke(Color.white, lineWidth: 1)
                 .opacity(0.3)
@@ -32,11 +32,6 @@ struct StackView: View {
                     }
                 }
             )
-    }
-    
-    func x() {
-        
-//        self.game.cardFrames[0][0].offsetBy(dx: 0, dy: self.yOffset * CGFloat(cardIndex))
     }
 }
 

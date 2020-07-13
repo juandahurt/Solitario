@@ -26,25 +26,29 @@ struct CardView: View {
     var body: some View {
         Group {
             if card.isFaceUp {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.white)
-                        .background(Color.white.shadow(radius: 2))
-                        .cornerRadius(10)
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(lineWidth: 1)
-                        .foregroundColor(.black)
-                    VStack {
-                        HStack {
-                            Text("\(card.number)")
-                                .foregroundColor(.black)
-                                .padding(.leading, 5)
+                GeometryReader { geometry in
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.white)
+                            .background(Color.white.shadow(radius: 2))
+                            .cornerRadius(10)
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(lineWidth: 1)
+                            .foregroundColor(.black)
+                        VStack {
+                            HStack {
+                                Spacer()
+                                Text("\(self.card.number)")
+                                    .bold()
+                                    .foregroundColor(.black)
+                                Text(self.card.suit.symbol)
+                                Spacer()
+                            }
                             Spacer()
-                            Text(card.suit.symbol)
-                            Spacer()
+                            Text(self.card.suit.symbol)
+                                .font(.custom("", size: geometry.size.width / 1.1))
                         }
-                        Spacer()
-                        Text(card.suit.symbol)
+                        .padding(.top, 5)
                     }
                 }
             } else {
@@ -66,10 +70,14 @@ struct CardView: View {
         .gesture(
             DragGesture(coordinateSpace: .global)
             .onChanged() {
-                self.dragAmount = CGSize(width: $0.translation.width, height: $0.translation.height)
+                if self.card.isFaceUp {
+                    self.dragAmount = CGSize(width: $0.translation.width, height: $0.translation.height)
+                }
             }
             .onEnded() {
-                self.onEnded?(self.card, $0.location)
+                if self.card.isFaceUp {
+                    self.onEnded?(self.card, $0.location)
+                }
                 self.dragAmount = .zero
             }
         )

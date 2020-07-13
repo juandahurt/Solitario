@@ -57,6 +57,8 @@ struct SolitarioGame {
             for cardIndex in stacksOfCards[stackIndex].indices {
                 stacksOfCards[stackIndex][cardIndex].location = .stacks(stackIndex, cardIndex)
             }
+            let endIndex = stacksOfCards[stackIndex].endIndex - 1
+            stacksOfCards[stackIndex][endIndex].isFaceUp = true
         default:
             print("Not Implemented yet!")
             return
@@ -64,7 +66,8 @@ struct SolitarioGame {
         
         switch locationToGo {
         case .stacks(let stackIndex, _):
-            let newCard = Card(number: card.number, suit: card.suit, isFaceUp: true, location: .stacks(stackIndex, stacksOfCards[stackIndex].endIndex - 1))
+            let endIndex = stacksOfCards[stackIndex].endIndex
+            let newCard = Card(number: card.number, suit: card.suit, isFaceUp: true, location: .stacks(stackIndex, endIndex))
             stacksOfCards[stackIndex].append(newCard)
         default:
             print("Not Implemented yet!")
