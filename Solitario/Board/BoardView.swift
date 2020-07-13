@@ -12,26 +12,27 @@ struct BoardView: View {
     @EnvironmentObject var game: EmojiSolitarioGame
     
     var body: some View {
-        VStack {
-            HStack() {
-                DeckView()
-                Spacer()
-                HStack {
-                    ForEach(0..<4) { _ in
-                        FinalStackView()
+        GeometryReader { geometry in
+            VStack {
+                    HStack() {
+                        DeckView()
+                        Spacer()
+                        HStack(alignment: .center, spacing: 20) {
+                            ForEach(0..<4) { _ in
+                                FinalStackView(in: geometry.size)
+                            }
+                        }
+                    }
+                    HStack {
+                        ForEach(self.game.stacksOfCards.indices) { stackIndex in
+                            StackView(stackIndex: stackIndex)
+                        }
                     }
                 }
-                Spacer()
-            }
-            HStack {
-                ForEach(self.game.stacksOfCards.indices) { stackIndex in
-                    StackView(stackIndex: stackIndex)
-                }
+                .padding()
+                .background(Color.green)
             }
         }
-        .padding()
-        .background(Color.green)
-    }
 }
 
 struct BoardView_Previews: PreviewProvider {

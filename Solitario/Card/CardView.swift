@@ -28,38 +28,33 @@ struct CardView: View {
             if card.isFaceUp {
                 GeometryReader { geometry in
                     ZStack {
-                        RoundedRectangle(cornerRadius: 10)
+                        RoundedRectangle(cornerRadius: self.cornerRadius)
                             .fill(Color.white)
-                            .background(Color.white.shadow(radius: 2))
-                            .cornerRadius(10)
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(lineWidth: 1)
-                            .foregroundColor(.black)
+                            .shadow(radius: 2)
                         VStack {
                             HStack {
-                                Spacer()
                                 Text("\(self.card.number)")
                                     .bold()
                                     .foregroundColor(.black)
+                                    .padding(.leading, 5)
                                 Text(self.card.suit.symbol)
                                 Spacer()
                             }
                             Spacer()
                             Text(self.card.suit.symbol)
-                                .font(.custom("", size: geometry.size.width / 1.1))
+                                .font(.custom("", size: geometry.size.width / 1.2))
                         }
                         .padding(.top, 5)
                     }
                 }
             } else {
                 ZStack {
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: cornerRadius)
                         .fill(Color.blue)
-                        .background(Color.black.shadow(radius: 10))
-                        .cornerRadius(10)
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: cornerRadius)
                         .stroke(lineWidth: 1)
                         .foregroundColor(.white)
+                        .shadow(radius: 2)
                 }
             }
         }
@@ -82,6 +77,11 @@ struct CardView: View {
             }
         )
     }
+    
+    // MARK: - UI Constants
+    
+    private let cornerRadius: CGFloat = 5
+    private let shadowRadius: CGFloat = 2
 }
 
 //struct CardView_Previews: PreviewProvider {

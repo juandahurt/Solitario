@@ -21,9 +21,9 @@ struct StackView: View {
             ForEach(self.game.stacksOfCards[stackIndex].indices, id: \.self) { cardIndex in
                 CardView(card: self.game.stacksOfCards[self.stackIndex][cardIndex], onEnded: self.game.drop)
                     .offset(x: 0, y: self.yOffset * CGFloat(cardIndex))
+                    .padding(.top)
             }
         }
-            .padding(.vertical)
             .overlay(
                 GeometryReader { geometry in
                     Color.clear
@@ -34,9 +34,3 @@ struct StackView: View {
             )
     }
 }
-
-//struct StackView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        StackView()
-//    }
-//}

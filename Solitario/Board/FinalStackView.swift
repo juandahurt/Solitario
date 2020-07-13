@@ -9,18 +9,23 @@
 import SwiftUI
 
 struct FinalStackView: View {
+    var size: CGSize
+    
+    init(in size: CGSize) {
+        self.size = size
+    }
+    
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 10)
+            RoundedRectangle(cornerRadius: 5)
             .stroke(Color.white, lineWidth: 1)
             .opacity(0.3)
-            .frame(width: 70, height: 100)
+                .frame(width: size.width / 10, height: size.height / 4)
             Text("A")
                 .font(.largeTitle)
                 .foregroundColor(Color.white)
                 .opacity(0.3)
         }
-        
     }
 }
 

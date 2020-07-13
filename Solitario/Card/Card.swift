@@ -24,6 +24,12 @@ struct Card {
 
 struct Suit {
     var symbol: String  // TODO: ¿De qué forma volver esto un poco más genérico?
+    var color: Color
+    
+    enum Color {
+        case black
+        case red
+    }
     
     static func from(string: String) -> Suit? {
         switch string {
@@ -44,11 +50,11 @@ struct Suit {
 // MARK: - Suit list
 
 extension Suit {
-    static var clubs = Suit(symbol: "♣️")
+    static var clubs = Suit(symbol: "♣️", color: .black)
     
-    static var diamonds = Suit(symbol: "♦️")
+    static var diamonds = Suit(symbol: "♦️", color: .red)
     
-    static var hearts = Suit(symbol: "♥️")
+    static var hearts = Suit(symbol: "♥️", color: .red)
     
-    static var spades = Suit(symbol: "♠️")
+    static var spades = Suit(symbol: "♠️", color: .black)
 }

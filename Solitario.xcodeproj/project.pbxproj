@@ -21,6 +21,7 @@
 		8263C1BC24B4D2CD001EF14F /* SolitarioGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C1BB24B4D2CD001EF14F /* SolitarioGame.swift */; };
 		82A09BA324B67FA0002AEDD9 /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A09BA224B67FA0002AEDD9 /* StackView.swift */; };
 		82B11EA024B66559005A7432 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B11E9F24B66559005A7432 /* BoardView.swift */; };
+		82B7481E24BD018100927BA7 /* Card+Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B7481D24BD018100927BA7 /* Card+Comparable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		8263C1BB24B4D2CD001EF14F /* SolitarioGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolitarioGame.swift; sourceTree = "<group>"; };
 		82A09BA224B67FA0002AEDD9 /* StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
 		82B11E9F24B66559005A7432 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		82B7481D24BD018100927BA7 /* Card+Comparable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+Comparable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		8263C19624B4CA19001EF14F = {
 			isa = PBXGroup;
 			children = (
+				82B7481D24BD018100927BA7 /* Card+Comparable.swift */,
 				8263C1A124B4CA1A001EF14F /* Solitario */,
 				8263C1A024B4CA1A001EF14F /* Products */,
 			);
@@ -201,6 +204,7 @@
 				8263C1A524B4CA1A001EF14F /* SceneDelegate.swift in Sources */,
 				8263C1A724B4CA1A001EF14F /* ContentView.swift in Sources */,
 				8263C1B724B4CB67001EF14F /* Card.swift in Sources */,
+				82B7481E24BD018100927BA7 /* Card+Comparable.swift in Sources */,
 				8263C1BC24B4D2CD001EF14F /* SolitarioGame.swift in Sources */,
 				82A09BA324B67FA0002AEDD9 /* StackView.swift in Sources */,
 				8263C1BA24B4CEC3001EF14F /* CardView.swift in Sources */,
