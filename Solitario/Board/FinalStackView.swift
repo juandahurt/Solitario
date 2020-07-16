@@ -19,12 +19,12 @@ struct FinalStackView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 5)
             .stroke(Color.white, lineWidth: 1)
-            .opacity(0.3)
+            .opacity(0.2)
                 .frame(width: size.width / 10, height: size.height / 4)
             Text("A")
-                .font(.largeTitle)
+                .font(.custom("", size: self.size.width / 15))
                 .foregroundColor(Color.white)
-                .opacity(0.3)
+                .opacity(0.2)
         }
     }
 }

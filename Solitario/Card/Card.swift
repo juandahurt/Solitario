@@ -9,16 +9,31 @@
 import Foundation
 
 struct Card {
-    var number: Int
+    private(set) var rank: Int
     var suit: Suit
     var isFaceUp: Bool
     var location: SolitarioGame.Location
     
-    init(number: Int, suit: Suit, isFaceUp: Bool = true, location: SolitarioGame.Location) {
-        self.number = number
+    init(rank: Int, suit: Suit, isFaceUp: Bool = true, location: SolitarioGame.Location) {
+        self.rank = rank
         self.suit = suit
         self.isFaceUp = isFaceUp
         self.location = location
+    }
+    
+    func giveTheRank() -> String {
+        switch rank {
+        case 1:
+            return "A"
+        case 11:
+            return "J"
+        case 12:
+            return "Q"
+        case 13:
+            return "K"
+        default:
+            return "\(rank)"
+        }
     }
 }
 

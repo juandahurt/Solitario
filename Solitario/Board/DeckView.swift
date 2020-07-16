@@ -10,6 +10,6 @@ import SwiftUI
 
 struct DeckView: View {
     var body: some View {
-        CardView(card: Card(number: 0, suit: .clubs, isFaceUp: false, location: .deck))
+        CardView(card: Card(rank: 0, suit: .clubs, isFaceUp: false, location: .deck))
     }
 }

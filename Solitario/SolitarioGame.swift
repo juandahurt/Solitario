@@ -29,8 +29,8 @@ struct SolitarioGame {
         let suits: [Suit] = [.clubs, .diamonds, .hearts, .spades]
         
         for suit in suits {
-            for cardNumber in 2...10 {
-                deckOfCards.append(Card(number: cardNumber, suit: suit, location: .deck))
+            for cardNumber in 1...13 {
+                deckOfCards.append(Card(rank: cardNumber, suit: suit, location: .deck))
             }
         }
         deckOfCards.shuffle()
@@ -53,7 +53,7 @@ struct SolitarioGame {
         let inititalCard = cards[0]
         let finalCard = cards[1]
         
-        return inititalCard.number == finalCard.number - 1 && inititalCard.suit.color != finalCard.suit.color
+        return inititalCard.rank == finalCard.rank - 1 && inititalCard.suit.color != finalCard.suit.color
     }
     
     mutating func drop(card: Card, at locationToGo: Location) {
@@ -66,7 +66,7 @@ struct SolitarioGame {
             }
                 
             let endIndex = stacksOfCards[stackIndex].endIndex
-            let newCard = Card(number: card.number, suit: card.suit, isFaceUp: true, location: .stacks(stackIndex, endIndex))
+            let newCard = Card(rank: card.rank, suit: card.suit, isFaceUp: true, location: .stacks(stackIndex, endIndex))
             stacksOfCards[stackIndex].append(newCard)
         default:
             print("Not Implemented yet!")

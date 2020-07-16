@@ -9,15 +9,15 @@
 import SwiftUI
 
 struct StackView: View {
+    @EnvironmentObject var game: EmojiSolitarioGame
+    
     var stackIndex: Int
     var yOffset: CGFloat = 25
-    @EnvironmentObject var game: EmojiSolitarioGame
     
     var body: some View {
         ZStack(alignment: .top) {
             RoundedRectangle(cornerRadius: 10)
-                .stroke(Color.white, lineWidth: 1)
-                .opacity(0.3)
+                .opacity(0)
             ForEach(self.game.stacksOfCards[stackIndex].indices, id: \.self) { cardIndex in
                 CardView(card: self.game.stacksOfCards[self.stackIndex][cardIndex], onEnded: self.game.drop)
                     .offset(x: 0, y: self.yOffset * CGFloat(cardIndex))

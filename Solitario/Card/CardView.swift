@@ -8,15 +8,8 @@
 
 import SwiftUI
 
-enum DragState {
-    case valid
-    case unvalid
-    case unknown
-}
-
 struct CardView: View {
     @State private var dragAmount = CGSize.zero
-    @State private var dragState: DragState = .unknown
     
     var card: Card
     var onEnded: ((Card, CGPoint) -> Void)?
@@ -33,7 +26,7 @@ struct CardView: View {
                             .shadow(radius: 2)
                         VStack {
                             HStack {
-                                Text("\(self.card.number)")
+                                Text(self.card.giveTheRank())
                                     .bold()
                                     .foregroundColor(.black)
                                     .padding(.leading, 5)
@@ -58,7 +51,7 @@ struct CardView: View {
                 }
             }
         }
-        .frame(width: 70, height: 100)
+        .frame(width: 70, height: 100) // TODO: Las dimensiones de las cartas deben dependen del contenedor
         .offset(x: 0, y: yOffset ?? 0)
         .offset(dragAmount)
         .zIndex(dragAmount == .zero ? 0 : 1)
@@ -69,9 +62,9 @@ struct CardView: View {
                     self.dragAmount = CGSize(width: $0.translation.width, height: $0.translation.height)
                 }
             }
-            .onEnded() {
+            .onEnded() { point in
                 if self.card.isFaceUp {
-                    self.onEnded?(self.card, $0.location)
+                    self.onEnded?(self.card, point.location)
                 }
                 self.dragAmount = .zero
             }
