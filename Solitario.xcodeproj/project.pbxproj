@@ -53,6 +53,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		821D7F5F24C25D4100D18FA7 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				8263C1BB24B4D2CD001EF14F /* SolitarioGame.swift */,
+				824DD98C24B5257500A48AB8 /* EmojiSolitarioGame.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
 		8263C19624B4CA19001EF14F = {
 			isa = PBXGroup;
 			children = (
@@ -77,8 +86,7 @@
 				8263C1A424B4CA1A001EF14F /* SceneDelegate.swift */,
 				8263C1A624B4CA1A001EF14F /* ContentView.swift */,
 				82B11EA124B66595005A7432 /* Board */,
-				8263C1BB24B4D2CD001EF14F /* SolitarioGame.swift */,
-				824DD98C24B5257500A48AB8 /* EmojiSolitarioGame.swift */,
+				821D7F5F24C25D4100D18FA7 /* Game */,
 				8263C1A824B4CA1B001EF14F /* Assets.xcassets */,
 				8263C1AD24B4CA1B001EF14F /* LaunchScreen.storyboard */,
 				8263C1B024B4CA1B001EF14F /* Info.plist */,

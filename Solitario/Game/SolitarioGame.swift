@@ -8,23 +8,21 @@
 
 import Foundation
 
-
-// TODO: Crear todas las cartas de forma aleatoria y se van agregando a los demás componentes
-
 struct SolitarioGame {
     var deckOfCards: [Card]
     var stacksOfCards: [[Card]]
-    var finalStacksOfCards: [[Card]]  // Aquí es donde el usuario apilará las cartas para poder ganar
+    var finalStacksOfCards: [Card?]  // Aquí es donde el usuario apilará las cartas para poder ganar
     
-    enum Location {
+    enum Location: Equatable {
         case deck
         case stacks(Int, Int?)  // Asocia el indice de la pila y el indice dentro de la pila
+        case finalStacks(Int)  // Asocia el indice de la pila final
     }
     
     init() {
         deckOfCards = [Card]()
         stacksOfCards = [[Card]]()
-        finalStacksOfCards = [[Card]]()
+        finalStacksOfCards = [Card?](repeating: nil, count: 4)
         
         let suits: [Suit] = [.clubs, .diamonds, .hearts, .spades]
         
@@ -68,8 +66,11 @@ struct SolitarioGame {
             let endIndex = stacksOfCards[stackIndex].endIndex
             let newCard = Card(rank: card.rank, suit: card.suit, isFaceUp: true, location: .stacks(stackIndex, endIndex))
             stacksOfCards[stackIndex].append(newCard)
+        case .finalStacks(let finalStackIndex):
+            finalStacksOfCards[finalStackIndex] = card
+            finalStacksOfCards[finalStackIndex]?.location = .finalStacks(finalStackIndex)
         default:
-            print("Not Implemented yet!")
+            print("wtf?")
             return
         }
         
@@ -85,7 +86,6 @@ struct SolitarioGame {
             }
         default:
             print("Not Implemented yet!")
-            return
         }
     }
 }

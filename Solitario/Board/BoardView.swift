@@ -18,8 +18,8 @@ struct BoardView: View {
                         DeckView()
                         Spacer()
                         HStack(alignment: .center, spacing: 30) {
-                            ForEach(0..<4) { _ in
-                                FinalStackView(in: geometry.size)
+                            ForEach(0..<4) { stackIndex in
+                                FinalStackView(in: geometry.size, stackIndex: stackIndex)
                             }
                         }
                     }

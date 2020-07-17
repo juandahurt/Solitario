@@ -57,9 +57,14 @@ struct CardView: View {
         .zIndex(dragAmount == .zero ? 0 : 1)
         .gesture(
             DragGesture(coordinateSpace: .global)
-            .onChanged() {
+            .onChanged() { point in
                 if self.card.isFaceUp {
-                    self.dragAmount = CGSize(width: $0.translation.width, height: $0.translation.height)
+                    switch self.card.location {
+                    case .finalStacks(_):
+                        return
+                    default:
+                        self.dragAmount = CGSize(width: point.translation.width, height: point.translation.height)
+                    }
                 }
             }
             .onEnded() { point in

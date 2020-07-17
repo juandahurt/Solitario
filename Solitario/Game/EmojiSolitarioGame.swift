@@ -10,16 +10,23 @@ import Foundation
 import SwiftUI
 
 class EmojiSolitarioGame: ObservableObject {
-    @Published var game = SolitarioGame()
+    @Published private var game = SolitarioGame()
     @Published var stacksFrames = [CGRect](repeating:  .zero, count: 7)
+    @Published var finalStackFrames = [CGRect](repeating: .zero, count: 4)
     
     func drop(card: Card, at location: CGPoint) {
         if let stackIndex = stacksFrames.firstIndex(where: { $0.contains(location) }) {
             game.drop(card: card, at: .stacks(stackIndex, nil))
+        } else if let finalStackIndex = finalStackFrames.firstIndex(where: { $0.contains(location) }) {
+            game.drop(card: card, at: .finalStacks(finalStackIndex))
         }
     }
     
     var stacksOfCards: [[Card]] {
-        return game.stacksOfCards
+        game.stacksOfCards
+    }
+    
+    var finalStacksOfCards: [Card?] {
+        game.finalStacksOfCards
     }
 }
