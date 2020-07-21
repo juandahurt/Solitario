@@ -17,39 +17,38 @@ struct CardView: View {
     var yOffset: CGFloat?
     
     var body: some View {
-        Group {
-            if card.isFaceUp {
-                GeometryReader { geometry in
-                    ZStack {
-                        RoundedRectangle(cornerRadius: self.cornerRadius)
-                            .fill(Color.white)
-                            .shadow(radius: 2)
-                        VStack {
-                            HStack {
-                                Text(self.card.giveTheRank())
-                                    .bold()
-                                    .foregroundColor(.black)
-                                    .padding(.leading, 5)
-                                Text(self.card.suit.symbol)
-                                Spacer()
-                            }
-                            Spacer()
-                            Text(self.card.suit.symbol)
-                                .font(.custom("", size: geometry.size.width / 1.2))
-                        }
-                        .padding(.top, 5)
-                    }
-                }
-            } else {
+        ZStack {
+            GeometryReader { geometry in
                 ZStack {
-                    RoundedRectangle(cornerRadius: cornerRadius)
-                        .fill(Color.blue)
-                    RoundedRectangle(cornerRadius: cornerRadius)
-                        .stroke(lineWidth: 1)
-                        .foregroundColor(.white)
+                    RoundedRectangle(cornerRadius: self.cornerRadius)
+                        .fill(Color.white)
                         .shadow(radius: 2)
+                    VStack {
+                        HStack {
+                            Text(self.card.giveTheRank())
+                                .bold()
+                                .foregroundColor(.black)
+                                .padding(.leading, 5)
+                            Text(self.card.suit.symbol)
+                            Spacer()
+                        }
+                        Spacer()
+                        Text(self.card.suit.symbol)
+                            .font(.custom("", size: geometry.size.width / 1.2))
+                    }
+                    .padding(.top, 5)
                 }
             }
+                .opacity(self.card.isFaceUp ? 1: 0)
+            ZStack {
+                RoundedRectangle(cornerRadius: cornerRadius)
+                    .fill(Color.blue)
+                RoundedRectangle(cornerRadius: cornerRadius)
+                    .stroke(lineWidth: 1)
+                    .foregroundColor(.white)
+                    .shadow(radius: 2)
+            }
+                .opacity(self.card.isFaceUp ? 0 : 1)
         }
         .frame(width: 70, height: 100) // TODO: Las dimensiones de las cartas deben dependen del contenedor
         .offset(x: 0, y: yOffset ?? 0)
@@ -74,6 +73,9 @@ struct CardView: View {
                 self.dragAmount = .zero
             }
         )
+            .rotation3DEffect(Angle(degrees: 180), axis: (x: 0, y: 1 ,z: 0))
+            .rotation3DEffect(self.card.isFaceUp ? Angle(degrees: 180) : Angle(degrees: 0), axis: (x: 0, y: 1,  z: 0))
+            .animation(.linear)
     }
     
     // MARK: - UI Constants
