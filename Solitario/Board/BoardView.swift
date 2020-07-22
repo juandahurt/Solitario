@@ -14,6 +14,22 @@ struct BoardView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
+                VStack {
+                    HStack {
+                        Spacer()
+                        Text("00:00:00")
+                            .foregroundColor(.white)
+                        Spacer()
+                        Text("Moves: \(self.game.score)")
+                            .foregroundColor(.white)
+                        Spacer()
+                        Text("Score: \(self.game.score)")
+                            .foregroundColor(.white)
+                        Spacer()
+                    }
+                        .frame(maxWidth: .infinity)
+                        .background(Color.black)
+                        .padding(0)
                     HStack() {
                         DeckView()
                         Spacer()
@@ -23,16 +39,18 @@ struct BoardView: View {
                             }
                         }
                     }
-                    HStack {
-                        ForEach(self.game.stacksOfCards.indices) { stackIndex in
-                            StackView(stackIndex: stackIndex)
-                        }
+                        .padding(.horizontal)
+                }
+                HStack {
+                    ForEach(self.game.stacksOfCards.indices) { stackIndex in
+                        StackView(stackIndex: stackIndex)
                     }
                 }
-                .padding()
-                .background(Color.green)
+                    .padding(.horizontal, 5)
             }
+            .background(Color.green)
         }
+    }
 }
 
 struct BoardView_Previews: PreviewProvider {

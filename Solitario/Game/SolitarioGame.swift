@@ -12,6 +12,7 @@ struct SolitarioGame {
     var deckOfCards: [Card]
     var stacksOfCards: [[Card]]
     var finalStacksOfCards: [Card?]  // Aquí es donde el usuario apilará las cartas para poder ganar
+    var score: Int = 0
     
     enum Location: Equatable {
         case deck
@@ -66,9 +67,11 @@ struct SolitarioGame {
             let endIndex = stacksOfCards[stackIndex].endIndex
             let newCard = Card(rank: card.rank, suit: card.suit, isFaceUp: true, location: .stacks(stackIndex, endIndex))
             stacksOfCards[stackIndex].append(newCard)
+            score += 5
         case .finalStacks(let finalStackIndex):
             finalStacksOfCards[finalStackIndex] = card
             finalStacksOfCards[finalStackIndex]?.location = .finalStacks(finalStackIndex)
+            score += 10
         default:
             print("wtf?")
             return
@@ -83,6 +86,11 @@ struct SolitarioGame {
             if !stacksOfCards[stackIndex].isEmpty {
                 let endIndex = stacksOfCards[stackIndex].endIndex - 1
                 stacksOfCards[stackIndex][endIndex].isFaceUp = true
+            }
+        case .deck:
+            // TODO: Validar que sea la última carta del mazo
+            if let cardIndex = deckOfCards.firstIndex(where: { $0.rank == card.rank && $0.suit.symbol == $0.suit.symbol }) {
+                deckOfCards.remove(at: cardIndex)
             }
         default:
             print("Not Implemented yet!")

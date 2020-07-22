@@ -68,14 +68,15 @@ struct CardView: View {
             }
             .onEnded() { point in
                 if self.card.isFaceUp {
-                    self.onEnded?(self.card, point.location)
+                    withAnimation(self.card.location != .deck ? .linear : .none) {
+                        self.onEnded?(self.card, point.location)
+                    }
                 }
                 self.dragAmount = .zero
             }
         )
             .rotation3DEffect(Angle(degrees: 180), axis: (x: 0, y: 1 ,z: 0))
             .rotation3DEffect(self.card.isFaceUp ? Angle(degrees: 180) : Angle(degrees: 0), axis: (x: 0, y: 1,  z: 0))
-            .animation(.linear)
     }
     
     // MARK: - UI Constants

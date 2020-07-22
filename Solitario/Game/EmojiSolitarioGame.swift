@@ -29,4 +29,12 @@ class EmojiSolitarioGame: ObservableObject {
     var finalStacksOfCards: [Card?] {
         game.finalStacksOfCards
     }
+    
+    var deckOfCards: [Card] {
+        game.deckOfCards
+    }
+    
+    var score: Int {
+        game.score
+    }
 }
