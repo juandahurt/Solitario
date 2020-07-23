@@ -14,8 +14,14 @@ struct UserStatsView: View {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var currentTime: Date?
     
+    var boardSize: CGSize
+    
+    init(in boardSize: CGSize) {
+        self.boardSize = boardSize
+    }
+    
     var body: some View {
-        HStack {
+        HStack(alignment: .center, spacing: 0) {
             Spacer()
             Text(currentTime == nil ? "00:00:00" : "\(currentTime!.toString())")
                 .foregroundColor(.white)
@@ -38,9 +44,8 @@ struct UserStatsView: View {
                 .foregroundColor(.white)
             Spacer()
         }
-            .frame(maxWidth: .infinity)
-            .background(Color.black)
-            .padding(0)
+            .frame(maxWidth: .infinity, maxHeight: self.boardSize.height / 6)
+            .background(Color("DarkGray"))
             .animation(.none)
     }
     

@@ -15,6 +15,14 @@ struct CardView: View {
     var onEnded: ((Card, CGPoint) -> Void)?
     
     var yOffset: CGFloat?
+    var boardSize: CGSize
+    
+    init(card: Card, onEnded: ((Card, CGPoint) -> Void)?, yOffset: CGFloat?, in boardSize: CGSize) {
+        self.card = card
+        self.onEnded = onEnded
+        self.yOffset = yOffset
+        self.boardSize = boardSize
+    }
     
     var body: some View {
         ZStack {
@@ -28,13 +36,12 @@ struct CardView: View {
                             Text(self.card.giveTheRank())
                                 .bold()
                                 .foregroundColor(.black)
-                                .padding(.leading, 5)
                             Text(self.card.suit.symbol)
-                            Spacer()
+                                .font(.custom("", size: geometry.size.width / 3))
                         }
                         Spacer()
                         Text(self.card.suit.symbol)
-                            .font(.custom("", size: geometry.size.width / 1.2))
+                            .font(.custom("", size: geometry.size.width / 1.5))
                     }
                     .padding(.top, 5)
                 }
@@ -44,16 +51,15 @@ struct CardView: View {
                 RoundedRectangle(cornerRadius: cornerRadius)
                     .fill(Color.blue)
                 RoundedRectangle(cornerRadius: cornerRadius)
-                    .stroke(lineWidth: 1)
+                    .stroke(lineWidth: 2)
                     .foregroundColor(.white)
-                    .shadow(radius: 2)
             }
                 .opacity(self.card.isFaceUp ? 0 : 1)
         }
-        .frame(width: 70, height: 100) // TODO: Las dimensiones de las cartas deben dependen del contenedor
         .offset(x: 0, y: yOffset ?? 0)
         .offset(dragAmount)
         .zIndex(dragAmount == .zero ? 0 : 1)
+        .frame(width: self.boardSize.width / 14, height: self.boardSize.height / 6)
         .gesture(
             DragGesture(coordinateSpace: .global)
             .onChanged() { point in

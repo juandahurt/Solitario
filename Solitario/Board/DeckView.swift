@@ -13,9 +13,15 @@ struct DeckView: View {
     @State var deckIndex = -3
     @State var deckWasTapped = false
     
+    var boardSize: CGSize
+    
+    init(in boardSize: CGSize) {
+        self.boardSize = boardSize
+    }
+    
     var body: some View {
-        HStack {
-            CardView(card: Card(rank: 0, suit: .clubs, isFaceUp: false, location: .deck))
+        VStack {
+            CardView(card: .empty, onEnded: nil, yOffset: nil, in: self.boardSize)
                 .onTapGesture {
                     self.deckIndex += 3
                     self.deckWasTapped = true
@@ -24,17 +30,22 @@ struct DeckView: View {
                         self.deckWasTapped = false
                     }
                 }
+                .padding(.top)
             if deckWasTapped {
                 ForEach(deckIndex..<deckIndex+3, id: \.self) { cardIndex in
                     VStack {
                         if cardIndex < self.game.deckOfCards.count {
-                            CardView(card: self.game.deckOfCards[cardIndex], onEnded: self.game.drop)
+                            CardView(card: self.game.deckOfCards[cardIndex], onEnded: self.game.drop, yOffset: nil, in: self.boardSize)
                         } else {
                             EmptyView()
                         }
                     }
                 }
+            } else {
+                Spacer()
             }
         }
+            .frame(maxWidth: boardSize.width / 9, maxHeight: boardSize.height)
+            .background(Color("DarkGreen"))
     }
 }

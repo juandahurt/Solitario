@@ -36,3 +36,7 @@ struct Card {
         }
     }
 }
+
+extension Card {
+    static let empty = Card(rank: 0, suit: .spades, isFaceUp: false, location: .deck)
+}

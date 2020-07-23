@@ -13,26 +13,26 @@ struct BoardView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack {
-                VStack {
-                    UserStatsView()
-                    HStack() {
-                        DeckView()
-                        Spacer()
-                        HStack(alignment: .center, spacing: 30) {
-                            ForEach(0..<4) { stackIndex in
-                                FinalStackView(in: geometry.size, stackIndex: stackIndex)
-                            }
+            VStack(alignment: .leading, spacing: 0) {
+                UserStatsView(in: geometry.size)
+                HStack(alignment: .top, spacing: 0) {
+                    DeckView(in: geometry.size)
+                    HStack {
+                        ForEach(self.game.stacksOfCards.indices) { stackIndex in
+                            StackView(in: geometry.size, stackIndex: stackIndex)
                         }
                     }
-                        .padding(.horizontal)
-                }
-                HStack {
-                    ForEach(self.game.stacksOfCards.indices) { stackIndex in
-                        StackView(stackIndex: stackIndex)
+                        .padding(.top)
+                    VStack(alignment: .center, spacing: 10) {
+                        Spacer()
+                        ForEach(0..<4) { stackIndex in
+                            FinalStackView(in: geometry.size, stackIndex: stackIndex)
+                        }
+                        Spacer()
                     }
+                    .frame(maxWidth: geometry.size.width / 9, maxHeight: geometry.size.height)
+                    .background(Color("DarkGreen"))
                 }
-                    .padding(.horizontal, 5)
             }
             .background(Color.green)
         }
