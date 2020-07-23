@@ -21,6 +21,7 @@
 		8263C1BC24B4D2CD001EF14F /* SolitarioGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C1BB24B4D2CD001EF14F /* SolitarioGame.swift */; };
 		82A09BA324B67FA0002AEDD9 /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A09BA224B67FA0002AEDD9 /* StackView.swift */; };
 		82B11EA024B66559005A7432 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B11E9F24B66559005A7432 /* BoardView.swift */; };
+		82CDA3DE24C8BBE600E0BB8F /* UserStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CDA3DD24C8BBE500E0BB8F /* UserStatsView.swift */; };
 		82D1072B24C7ABE300739F25 /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D1072A24C7ABE300739F25 /* Suit.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		8263C1BB24B4D2CD001EF14F /* SolitarioGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolitarioGame.swift; sourceTree = "<group>"; };
 		82A09BA224B67FA0002AEDD9 /* StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
 		82B11E9F24B66559005A7432 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		82CDA3DD24C8BBE500E0BB8F /* UserStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatsView.swift; sourceTree = "<group>"; };
 		82D1072A24C7ABE300739F25 /* Suit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +132,7 @@
 				8203896324BA59B70068FEC0 /* FinalStackView.swift */,
 				82A09BA224B67FA0002AEDD9 /* StackView.swift */,
 				8203896124BA59960068FEC0 /* DeckView.swift */,
+				82CDA3DD24C8BBE500E0BB8F /* UserStatsView.swift */,
 			);
 			path = Board;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				824DD98D24B5257500A48AB8 /* EmojiSolitarioGame.swift in Sources */,
 				8203896424BA59B70068FEC0 /* FinalStackView.swift in Sources */,
 				8263C1A324B4CA1A001EF14F /* AppDelegate.swift in Sources */,
+				82CDA3DE24C8BBE600E0BB8F /* UserStatsView.swift in Sources */,
 				8263C1A524B4CA1A001EF14F /* SceneDelegate.swift in Sources */,
 				8263C1A724B4CA1A001EF14F /* ContentView.swift in Sources */,
 				8263C1B724B4CB67001EF14F /* Card.swift in Sources */,

@@ -15,21 +15,7 @@ struct BoardView: View {
         GeometryReader { geometry in
             VStack {
                 VStack {
-                    HStack {
-                        Spacer()
-                        Text("00:00:00")
-                            .foregroundColor(.white)
-                        Spacer()
-                        Text("Moves: \(self.game.score)")
-                            .foregroundColor(.white)
-                        Spacer()
-                        Text("Score: \(self.game.score)")
-                            .foregroundColor(.white)
-                        Spacer()
-                    }
-                        .frame(maxWidth: .infinity)
-                        .background(Color.black)
-                        .padding(0)
+                    UserStatsView()
                     HStack() {
                         DeckView()
                         Spacer()

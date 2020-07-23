@@ -37,4 +37,8 @@ class EmojiSolitarioGame: ObservableObject {
     var score: Int {
         game.score
     }
+    
+    var moves: Int {
+        game.moves
+    }
 }

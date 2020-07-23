@@ -13,6 +13,7 @@ struct SolitarioGame {
     var stacksOfCards: [[Card]]
     var finalStacksOfCards: [Card?]  // Aquí es donde el usuario apilará las cartas para poder ganar
     var score: Int = 0
+    var moves: Int = 0
     
     enum Location: Equatable {
         case deck
@@ -88,12 +89,13 @@ struct SolitarioGame {
                 stacksOfCards[stackIndex][endIndex].isFaceUp = true
             }
         case .deck:
-            // TODO: Validar que sea la última carta del mazo
+            // TODO: Validar que sea la última carta del mazo, ahora cómo vergas se hace eso
             if let cardIndex = deckOfCards.firstIndex(where: { $0.rank == card.rank && $0.suit.symbol == $0.suit.symbol }) {
                 deckOfCards.remove(at: cardIndex)
             }
         default:
             print("Not Implemented yet!")
         }
+        moves += 1
     }
 }

@@ -77,6 +77,7 @@ struct CardView: View {
         )
             .rotation3DEffect(Angle(degrees: 180), axis: (x: 0, y: 1 ,z: 0))
             .rotation3DEffect(self.card.isFaceUp ? Angle(degrees: 180) : Angle(degrees: 0), axis: (x: 0, y: 1,  z: 0))
+            .transition(.identity)
     }
     
     // MARK: - UI Constants
