@@ -27,34 +27,21 @@ struct CardView: View {
     var body: some View {
         ZStack {
             GeometryReader { geometry in
-                ZStack {
-                    RoundedRectangle(cornerRadius: self.cornerRadius)
-                        .fill(Color.white)
-                        .shadow(radius: 2)
-                    VStack {
-                        HStack {
-                            Text(self.card.giveTheRank())
-                                .bold()
-                                .foregroundColor(.black)
-                            Text(self.card.suit.symbol)
-                                .font(.custom("", size: geometry.size.width / 3))
-                        }
-                        Spacer()
+                VStack {
+                    HStack {
+                        Text(self.card.giveTheRank())
+                            .bold()
+                            .foregroundColor(.black)
                         Text(self.card.suit.symbol)
-                            .font(.custom("", size: geometry.size.width / 1.5))
+                            .font(.custom("", size: geometry.size.width / 3))
                     }
-                    .padding(.top, 5)
+                    Spacer()
+                    Text(self.card.suit.symbol)
+                        .font(.custom("", size: geometry.size.width / 1.5))
                 }
+                .padding(.top, 5)
             }
-                .opacity(self.card.isFaceUp ? 1: 0)
-            ZStack {
-                RoundedRectangle(cornerRadius: cornerRadius)
-                    .fill(Color.blue)
-                RoundedRectangle(cornerRadius: cornerRadius)
-                    .stroke(lineWidth: 2)
-                    .foregroundColor(.white)
-            }
-                .opacity(self.card.isFaceUp ? 0 : 1)
+                .flippableCard(isFaceUp: card.isFaceUp)
         }
         .offset(x: 0, y: yOffset ?? 0)
         .offset(dragAmount)
@@ -74,22 +61,13 @@ struct CardView: View {
             }
             .onEnded() { point in
                 if self.card.isFaceUp {
-                    withAnimation(self.card.location != .deck ? .linear : .none) {
-                        self.onEnded?(self.card, point.location)
-                    }
+                    self.onEnded?(self.card, point.location)
                 }
                 self.dragAmount = .zero
             }
         )
-            .rotation3DEffect(Angle(degrees: 180), axis: (x: 0, y: 1 ,z: 0))
-            .rotation3DEffect(self.card.isFaceUp ? Angle(degrees: 180) : Angle(degrees: 0), axis: (x: 0, y: 1,  z: 0))
-            .transition(.identity)
+        .animation(self.card.location != .deck ? .linear(duration: 0.2) : .none)
     }
-    
-    // MARK: - UI Constants
-    
-    private let cornerRadius: CGFloat = 5
-    private let shadowRadius: CGFloat = 2
 }
 
 //struct CardView_Previews: PreviewProvider {
