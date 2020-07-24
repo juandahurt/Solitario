@@ -61,12 +61,14 @@ struct CardView: View {
             }
             .onEnded() { point in
                 if self.card.isFaceUp {
-                    self.onEnded?(self.card, point.location)
+                    withAnimation(.linear) {
+                        self.onEnded?(self.card, point.location)
+                    }
                 }
                 self.dragAmount = .zero
             }
         )
-        .animation(self.card.location != .deck ? .linear(duration: 0.2) : .none)
+        .transition(.identity)
     }
 }
 
