@@ -56,7 +56,7 @@ struct SolitarioGame {
         return inititalCard.rank.value == finalCard.rank.value - 1 && inititalCard.suit.color != finalCard.suit.color
     }
     
-    mutating func deckWasClicked() {
+    mutating func touchDeck() {
         moves += 1
     }
     
@@ -74,6 +74,13 @@ struct SolitarioGame {
             stacksOfCards[stackIndex].append(newCard)
             score += 5
         case .finalStacks(let finalStackIndex):
+            if let cardOnTop = finalStacksOfCards[finalStackIndex] {
+                if cardOnTop.suit != card.suit { return }
+                if cardOnTop.rank.value < card.rank.value - 1 { return }
+            } else {
+                // La pila está vacía
+                if card.rank != .ace { return }
+            }
             finalStacksOfCards[finalStackIndex] = card
             finalStacksOfCards[finalStackIndex]?.location = .finalStacks(finalStackIndex)
             score += 10

@@ -23,7 +23,7 @@ class EmojiSolitarioGame: ObservableObject {
     }
     
     func deckWasClicked() {
-        game.deckWasClicked()
+        game.touchDeck()
     }
     
     var stacksOfCards: [[Card]] {
