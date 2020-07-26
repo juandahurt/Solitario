@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8203896224BA59960068FEC0 /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8203896124BA59960068FEC0 /* DeckView.swift */; };
 		8203896424BA59B70068FEC0 /* FinalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8203896324BA59B70068FEC0 /* FinalStackView.swift */; };
+		82310B2B24CD006900846403 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82310B2A24CD006900846403 /* Rank.swift */; };
 		824DD98D24B5257500A48AB8 /* EmojiSolitarioGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824DD98C24B5257500A48AB8 /* EmojiSolitarioGame.swift */; };
 		8263C1A324B4CA1A001EF14F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C1A224B4CA1A001EF14F /* AppDelegate.swift */; };
 		8263C1A524B4CA1A001EF14F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C1A424B4CA1A001EF14F /* SceneDelegate.swift */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		8203896124BA59960068FEC0 /* DeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckView.swift; sourceTree = "<group>"; };
 		8203896324BA59B70068FEC0 /* FinalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalStackView.swift; sourceTree = "<group>"; };
+		82310B2A24CD006900846403 /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
 		824DD98C24B5257500A48AB8 /* EmojiSolitarioGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiSolitarioGame.swift; sourceTree = "<group>"; };
 		8263C19F24B4CA1A001EF14F /* Solitario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Solitario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8263C1A224B4CA1A001EF14F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				8263C1B624B4CB67001EF14F /* Card.swift */,
 				8263C1B924B4CEC3001EF14F /* CardView.swift */,
 				82D1072A24C7ABE300739F25 /* Suit.swift */,
+				82310B2A24CD006900846403 /* Rank.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				8263C1BA24B4CEC3001EF14F /* CardView.swift in Sources */,
 				82D1072B24C7ABE300739F25 /* Suit.swift in Sources */,
 				8203896224BA59960068FEC0 /* DeckView.swift in Sources */,
+				82310B2B24CD006900846403 /* Rank.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

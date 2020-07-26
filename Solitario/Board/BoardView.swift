@@ -42,6 +42,7 @@ struct BoardView: View {
 struct BoardView_Previews: PreviewProvider {
     static var previews: some View {
         BoardView()
-            .previewLayout(.fixed(width: 698, height: 290))
+            .environmentObject(EmojiSolitarioGame())
+            .previewLayout(.fixed(width: 698, height: 440))
     }
 }

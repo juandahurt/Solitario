@@ -34,7 +34,7 @@ struct FinalStackView: View {
                .foregroundColor(Color.white)
                .opacity(0.3)
             if game.finalStacksOfCards[stackIndex] != nil {
-                CardView(card: game.finalStacksOfCards[stackIndex]!, onEnded: nil, yOffset: nil, in: self.boardSize)
+                CardView(card: game.finalStacksOfCards[stackIndex]!, in: self.boardSize)
             }
        }
        .overlay(

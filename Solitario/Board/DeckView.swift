@@ -21,8 +21,9 @@ struct DeckView: View {
     
     var body: some View {
         VStack {
-            CardView(card: .empty, onEnded: nil, yOffset: nil, in: self.boardSize)
+            CardView(card: .empty, in: self.boardSize)
                 .onTapGesture {
+                    self.game.deckWasClicked()
                     self.deckIndex += 3
                     self.deckWasTapped = true
                     if self.deckIndex >= self.game.deckOfCards.count {
@@ -35,7 +36,7 @@ struct DeckView: View {
                 ForEach(deckIndex..<deckIndex+3, id: \.self) { cardIndex in
                     VStack {
                         if cardIndex < self.game.deckOfCards.count {
-                            CardView(card: self.game.deckOfCards[cardIndex], onEnded: self.game.drop, yOffset: nil, in: self.boardSize)
+                            CardView(card: self.game.deckOfCards[cardIndex], onEnded: self.game.drop, in: self.boardSize)
                         } else {
                             EmptyView()
                         }

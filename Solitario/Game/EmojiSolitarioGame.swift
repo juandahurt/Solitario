@@ -22,6 +22,10 @@ class EmojiSolitarioGame: ObservableObject {
         }
     }
     
+    func deckWasClicked() {
+        game.deckWasClicked()
+    }
+    
     var stacksOfCards: [[Card]] {
         game.stacksOfCards
     }

@@ -17,10 +17,14 @@ struct CardView: View {
     var yOffset: CGFloat?
     var boardSize: CGSize
     
-    init(card: Card, onEnded: ((Card, CGPoint) -> Void)?, yOffset: CGFloat?, in boardSize: CGSize) {
+    init(card: Card, onEnded: ((Card, CGPoint) -> Void)?, in boardSize: CGSize) {
         self.card = card
         self.onEnded = onEnded
-        self.yOffset = yOffset
+        self.boardSize = boardSize
+    }
+    
+    init(card: Card, in boardSize: CGSize) {
+        self.card = card
         self.boardSize = boardSize
     }
     
@@ -29,7 +33,7 @@ struct CardView: View {
             GeometryReader { geometry in
                 VStack {
                     HStack {
-                        Text(self.card.giveTheRank())
+                        Text(self.card.giveMeTheRepresentationOfTheRank())
                             .bold()
                             .foregroundColor(.black)
                         Text(self.card.suit.symbol)
@@ -72,8 +76,11 @@ struct CardView: View {
     }
 }
 
-//struct CardView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CardView(card: Card(id: 1, number: 2, suit: .diamonds, location: .stacks(0)))
-//    }
-//}
+struct CardView_Previews: PreviewProvider {
+    static var previews: some View {
+        GeometryReader { geometry in
+            CardView(card: Card(rank: 2, suit: .diamonds, location: .stacks(0, nil)), in: geometry.size)
+        }
+        
+    }
+}

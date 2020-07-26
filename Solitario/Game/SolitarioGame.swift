@@ -53,7 +53,11 @@ struct SolitarioGame {
         let inititalCard = cards[0]
         let finalCard = cards[1]
         
-        return inititalCard.rank == finalCard.rank - 1 && inititalCard.suit.color != finalCard.suit.color
+        return inititalCard.rank.value == finalCard.rank.value - 1 && inititalCard.suit.color != finalCard.suit.color
+    }
+    
+    mutating func deckWasClicked() {
+        moves += 1
     }
     
     mutating func drop(card: Card, at locationToGo: Location) {
@@ -66,7 +70,7 @@ struct SolitarioGame {
             }
                 
             let endIndex = stacksOfCards[stackIndex].endIndex
-            let newCard = Card(rank: card.rank, suit: card.suit, isFaceUp: true, location: .stacks(stackIndex, endIndex))
+            let newCard = Card(rank: card.rank.value, suit: card.suit, isFaceUp: true, location: .stacks(stackIndex, endIndex))
             stacksOfCards[stackIndex].append(newCard)
             score += 5
         case .finalStacks(let finalStackIndex):
@@ -74,7 +78,7 @@ struct SolitarioGame {
             finalStacksOfCards[finalStackIndex]?.location = .finalStacks(finalStackIndex)
             score += 10
         default:
-            print("wtf?")
+            print("wtf?")  // Si llega aquí, me corto un huevo
             return
         }
         
@@ -90,7 +94,7 @@ struct SolitarioGame {
             }
         case .deck:
             // TODO: Validar que sea la última carta del mazo, ahora cómo vergas se hace eso
-            if let cardIndex = deckOfCards.firstIndex(where: { $0.rank == card.rank && $0.suit.symbol == $0.suit.symbol }) {
+            if let cardIndex = deckOfCards.firstIndex(where: { $0.rank == card.rank && $0.suit == $0.suit }) {
                 deckOfCards.remove(at: cardIndex)
             }
         default:

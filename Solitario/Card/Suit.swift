@@ -35,13 +35,11 @@ extension Suit {
     }
 }
 
-//extension Suit: Equatable {
-//    static func == (lhs: Suit, rhs: Suit) -> Bool {
-//        return lhs.symbol == rhs.symbol && lhs.color == rhs.color
-//    }
-//}
-
-
+extension Suit: Equatable {
+    static func == (lhs: Suit, rhs: Suit) -> Bool {
+        lhs.symbol == rhs.symbol && lhs.color == rhs.color
+    }
+}
 // MARK: - Suit list
 
 extension Suit {

@@ -25,7 +25,7 @@ struct StackView: View {
             RoundedRectangle(cornerRadius: 10)
                 .opacity(0)
             ForEach(self.game.stacksOfCards[stackIndex].indices, id: \.self) { cardIndex in
-                CardView(card: self.game.stacksOfCards[self.stackIndex][cardIndex], onEnded: self.game.drop, yOffset: nil, in: self.boardSize)
+                CardView(card: self.game.stacksOfCards[self.stackIndex][cardIndex], onEnded: self.game.drop, in: self.boardSize)
                     .offset (x: 0, y: self.yOffset * CGFloat(cardIndex))
             }
         }
@@ -37,5 +37,15 @@ struct StackView: View {
                     }
                 }
             )
+    }
+}
+
+struct StackView_Previews: PreviewProvider {
+    static var previews: some View {
+        GeometryReader { geometry in
+            StackView(in: geometry.size, stackIndex: 5)
+                .environmentObject(EmojiSolitarioGame())
+                .previewLayout(.fixed(width: 750, height: 300))
+        }
     }
 }
