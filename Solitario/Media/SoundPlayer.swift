@@ -12,7 +12,7 @@ import AVFoundation
 // TODO: HACER QUE FUNCIONE
 
 struct SoundPlayer {
-    func play(sound: Sound) {
+    static func play(sound: Sound) {
         if let url = Bundle.main.url(forResource: sound.name, withExtension: sound.ext) {
             do {
                 let sound = try AVAudioPlayer(contentsOf: url)
