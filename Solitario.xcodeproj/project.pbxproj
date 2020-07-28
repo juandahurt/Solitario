@@ -24,6 +24,9 @@
 		82A09BA324B67FA0002AEDD9 /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A09BA224B67FA0002AEDD9 /* StackView.swift */; };
 		82B11EA024B66559005A7432 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B11E9F24B66559005A7432 /* BoardView.swift */; };
 		82CDA3DE24C8BBE600E0BB8F /* UserStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CDA3DD24C8BBE500E0BB8F /* UserStatsView.swift */; };
+		82CFE08B24D0CD1600DE4DFB /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CFE08A24D0CD1600DE4DFB /* SoundPlayer.swift */; };
+		82CFE08E24D0CDD900DE4DFB /* flip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82CFE08D24D0CDD900DE4DFB /* flip.mp3 */; };
+		82CFE09024D0CE9800DE4DFB /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CFE08F24D0CE9800DE4DFB /* Sound.swift */; };
 		82D1072B24C7ABE300739F25 /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D1072A24C7ABE300739F25 /* Suit.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +50,9 @@
 		82A09BA224B67FA0002AEDD9 /* StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
 		82B11E9F24B66559005A7432 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		82CDA3DD24C8BBE500E0BB8F /* UserStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatsView.swift; sourceTree = "<group>"; };
+		82CFE08A24D0CD1600DE4DFB /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
+		82CFE08D24D0CDD900DE4DFB /* flip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = flip.mp3; sourceTree = "<group>"; };
+		82CFE08F24D0CE9800DE4DFB /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		82D1072A24C7ABE300739F25 /* Suit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +95,7 @@
 		8263C1A124B4CA1A001EF14F /* Solitario */ = {
 			isa = PBXGroup;
 			children = (
+				82CFE08924D0CCF600DE4DFB /* Media */,
 				82AACC7C24B50C4F00047E4E /* Styles */,
 				8263C1A224B4CA1A001EF14F /* AppDelegate.swift */,
 				8263C1A424B4CA1A001EF14F /* SceneDelegate.swift */,
@@ -141,6 +148,24 @@
 				82CDA3DD24C8BBE500E0BB8F /* UserStatsView.swift */,
 			);
 			path = Board;
+			sourceTree = "<group>";
+		};
+		82CFE08924D0CCF600DE4DFB /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				82CFE08C24D0CDB700DE4DFB /* Sounds */,
+				82CFE08A24D0CD1600DE4DFB /* SoundPlayer.swift */,
+				82CFE08F24D0CE9800DE4DFB /* Sound.swift */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
+		82CFE08C24D0CDB700DE4DFB /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				82CFE08D24D0CDD900DE4DFB /* flip.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +229,7 @@
 				8263C1AF24B4CA1B001EF14F /* LaunchScreen.storyboard in Resources */,
 				8263C1AC24B4CA1B001EF14F /* Preview Assets.xcassets in Resources */,
 				8263C1A924B4CA1B001EF14F /* Assets.xcassets in Resources */,
+				82CFE08E24D0CDD900DE4DFB /* flip.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,8 +242,10 @@
 			files = (
 				82B11EA024B66559005A7432 /* BoardView.swift in Sources */,
 				82725F9024CB66D6005B2A1C /* FlippableCard.swift in Sources */,
+				82CFE08B24D0CD1600DE4DFB /* SoundPlayer.swift in Sources */,
 				824DD98D24B5257500A48AB8 /* EmojiSolitarioGame.swift in Sources */,
 				8203896424BA59B70068FEC0 /* FinalStackView.swift in Sources */,
+				82CFE09024D0CE9800DE4DFB /* Sound.swift in Sources */,
 				8263C1A324B4CA1A001EF14F /* AppDelegate.swift in Sources */,
 				82CDA3DE24C8BBE600E0BB8F /* UserStatsView.swift in Sources */,
 				8263C1A524B4CA1A001EF14F /* SceneDelegate.swift in Sources */,

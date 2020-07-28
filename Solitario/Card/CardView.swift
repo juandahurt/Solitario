@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct CardView: View {
+    @EnvironmentObject var game: EmojiSolitarioGame
     @State private var dragAmount = CGSize.zero
     
     var card: Card
@@ -65,7 +66,7 @@ struct CardView: View {
             }
             .onEnded() { point in
                 if self.card.isFaceUp {
-                    withAnimation(.linear) {
+                    withAnimation(.linear(duration: 0.2)) {
                         self.onEnded?(self.card, point.location)
                     }
                 }

@@ -98,6 +98,7 @@ struct SolitarioGame {
             if !stacksOfCards[stackIndex].isEmpty {
                 let endIndex = stacksOfCards[stackIndex].endIndex - 1
                 stacksOfCards[stackIndex][endIndex].isFaceUp = true
+                SoundPlayer.play(sound: .flip)
             }
         case .deck:
             // TODO: Validar que sea la última carta del mazo, ahora cómo vergas se hace eso
