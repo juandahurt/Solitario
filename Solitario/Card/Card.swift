@@ -28,4 +28,18 @@ struct Card {
 
 extension Card {
     static let empty = Card(rank: 0, suit: .spades, isFaceUp: false, location: .deck)
+    
+    static func random() -> Card {
+        let suits: [Suit] = [.clubs, .diamonds, .hearts, .spades]
+        let randomSuit = suits.randomElement()!
+        
+        let isFaceup = Double.random(in: 0...1) > 0.7
+        
+        return Card(
+            rank: Int.random(in: 1...13),
+            suit: randomSuit,
+            isFaceUp: isFaceup,
+            location: .deck
+        )
+    }
 }

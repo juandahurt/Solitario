@@ -15,6 +15,8 @@ struct CardView: View {
     var card: Card
     var onEnded: ((Card, CGPoint) -> Void)?
     
+    var transition: AnyTransition
+    
     var yOffset: CGFloat?
     var boardSize: CGSize
     
@@ -22,11 +24,19 @@ struct CardView: View {
         self.card = card
         self.onEnded = onEnded
         self.boardSize = boardSize
+        self.transition = .identity
     }
     
     init(card: Card, in boardSize: CGSize) {
         self.card = card
         self.boardSize = boardSize
+        self.transition = .identity
+    }
+    
+    init(card: Card, in boardSize: CGSize, transition: AnyTransition) {
+        self.card = card
+        self.boardSize = boardSize
+        self.transition = transition
     }
     
     var body: some View {
@@ -73,7 +83,7 @@ struct CardView: View {
                 self.dragAmount = .zero
             }
         )
-        .transition(.identity)
+            .transition(self.transition)
     }
 }
 

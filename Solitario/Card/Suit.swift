@@ -40,6 +40,8 @@ extension Suit: Equatable {
         lhs.symbol == rhs.symbol && lhs.color == rhs.color
     }
 }
+
+
 // MARK: - Suit list
 
 extension Suit {

@@ -16,6 +16,7 @@ struct SolitarioGame {
     var moves: Int = 0
     
     enum Location: Equatable {
+        case unknown
         case deck
         case stacks(Int, Int?)  // Asocia el indice de la pila y el indice dentro de la pila
         case finalStacks(Int)  // Asocia el indice de la pila final
@@ -98,11 +99,12 @@ struct SolitarioGame {
             if !stacksOfCards[stackIndex].isEmpty {
                 let endIndex = stacksOfCards[stackIndex].endIndex - 1
                 stacksOfCards[stackIndex][endIndex].isFaceUp = true
-                SoundPlayer.play(sound: .flip)
+//                SoundPlayer.play(sound: .flip)
+                // TODO: Hacer funcionar el reproductor de sonidos
             }
         case .deck:
             // TODO: Validar que sea la última carta del mazo, ahora cómo vergas se hace eso
-            if let cardIndex = deckOfCards.firstIndex(where: { $0.rank == card.rank && $0.suit == $0.suit }) {
+            if let cardIndex = deckOfCards.firstIndex(where: { $0.rank == card.rank && $0.suit == card.suit }) {
                 deckOfCards.remove(at: cardIndex)
             }
         default:

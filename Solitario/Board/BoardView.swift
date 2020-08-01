@@ -39,14 +39,19 @@ struct BoardView: View {
                     VStack {
                         Spacer()
                         HStack {
-                            Text("Back to menu")
+                            MenuButton("Menu", screenSize: geometry.size, image: "house", action: {
+                                withAnimation(.linear) {
+                                    self.game.isMenuActive(true)
+                                }
+                            })
                             Spacer()
-                            Text("Shuffle")
                         }
                             .padding([.horizontal, .bottom])
                     }
                 }
                     .frame(maxWidth: geometry.size.width * 7/9)
+                MainMenuView(screenSize: geometry.size)
+                    .opacity(self.game.isMenuActive ? 1 : 0)
             }
                 .background(Color.green)
         }
