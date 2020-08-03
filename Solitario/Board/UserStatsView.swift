@@ -22,41 +22,51 @@ struct UserStatsView: View {
     
     var body: some View {
         HStack(alignment: .center, spacing: 1) {
-            VStack {
-                Text("Time")
-                    .fontWeight(.heavy)
-                Text(currentTime == nil ? "00:00:00" : "\(currentTime!.toString())")
-                    .fontWeight(.heavy)
+            Button(action: { self.game.isMenuActive(true) }) {
+                Image(systemName: "house")
                     .foregroundColor(.white)
-                    .onReceive(timer) { _ in
-                        if let time = self.currentTime {
-                            self.update(time: time)
-                        } else {
-                            let formatter = DateFormatter()
-                            let emptyDate = "00:00:00"
-                            formatter.dateFormat = "HH:mm:ss"
-                            self.currentTime = formatter.date(from: emptyDate)!
-                            self.update(time: self.currentTime!)
+                    .font(.title)
+            }
+                .frame(width: boardSize.width / 9)
+            Spacer()
+            Group {
+                VStack {
+                    Text("Time")
+                        .fontWeight(.heavy)
+                    Text(currentTime == nil ? "00:00:00" : "\(currentTime!.toString())")
+                        .fontWeight(.heavy)
+                        .foregroundColor(.white)
+                        .onReceive(timer) { _ in
+                            if let time = self.currentTime {
+                                self.update(time: time)
+                            } else {
+                                let formatter = DateFormatter()
+                                let emptyDate = "00:00:00"
+                                formatter.dateFormat = "HH:mm:ss"
+                                self.currentTime = formatter.date(from: emptyDate)!
+                                self.update(time: self.currentTime!)
+                            }
                         }
-                    }
-                    .frame(width: boardSize.width / 3)
-            }
-            VStack {
-                Text("Moves")
-                    .fontWeight(.heavy)
-                Text("\(self.game.moves)")
-                    .fontWeight(.heavy)
-                    .frame(width: boardSize.width / 3)
-            }
-            VStack {
-                Text("Score")
-                    .fontWeight(.heavy)
-                Text("\(self.game.score)")
-                    .fontWeight(.heavy)
-                    .frame(width: boardSize.width / 3)
+                        .frame(width: boardSize.width / 4)
+                }
+                VStack {
+                    Text("Moves")
+                        .fontWeight(.heavy)
+                    Text("\(self.game.moves)")
+                        .fontWeight(.heavy)
+                        .frame(width: boardSize.width / 4)
+                }
+                VStack {
+                    Text("Score")
+                        .fontWeight(.heavy)
+                    Text("\(self.game.score)")
+                        .fontWeight(.heavy)
+                        .frame(width: boardSize.width / 4)
+                }
+                Spacer()
             }
         }
-            .frame(maxWidth: .infinity, maxHeight: self.boardSize.height / 6)
+        .frame(maxWidth: self.boardSize.width, maxHeight: self.boardSize.height / 6)
             .background(Color("DarkGray"))
             .foregroundColor(.white)
             .animation(.none)
