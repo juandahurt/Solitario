@@ -80,22 +80,16 @@ struct SolitarioGame {
                 if cardOnTop.suit != card.suit { return }
                 if cardOnTop.rank.value < card.rank.value - 1 { return }
                 aceStacksOfCards[aceStackIndex]!.append(card)
+                
+                let endIndex = aceStacksOfCards[aceStackIndex]!.endIndex - 1
+                aceStacksOfCards[aceStackIndex]![endIndex].location = .aceStacks(aceStackIndex)
             } else {
                 // La pila está vacía
                 if card.rank != .ace { return }
                 aceStacksOfCards[aceStackIndex] = [card]
+                aceStacksOfCards[aceStackIndex]![0].location = .aceStacks(aceStackIndex)
             }
-            print(aceStacksOfCards[aceStackIndex]!.count)
-//            if let cardOnTop = aceStacksOfCards[aceStackIndex] {
-//                if cardOnTop.suit != card.suit { return }
-//                if cardOnTop.rank.value < card.rank.value - 1 { return }
-//            } else {
-//                // La pila está vacía
-//                if card.rank != .ace { return }
-//            }
-//            aceStacksOfCards[aceStackIndex] = card
-//            aceStacksOfCards[aceStackIndex]?.location = .aceStacks(aceStackIndex)
-//            score += 10
+            score += 10
         default:
             print("wtf?")  // Si llega aquí, me corto un huevo
             return
@@ -117,6 +111,8 @@ struct SolitarioGame {
             if let cardIndex = deckOfCards.firstIndex(where: { $0.rank == card.rank && $0.suit == card.suit }) {
                 deckOfCards.remove(at: cardIndex)
             }
+        case .aceStacks(let aceStackIndex):
+            aceStacksOfCards[aceStackIndex]!.removeLast()
         default:
             print("Not Implemented yet!")
         }

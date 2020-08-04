@@ -67,7 +67,7 @@ struct CardView: View {
             .onChanged() { point in
                 if self.card.isFaceUp {
                     switch self.card.location {
-                    case .aceStacks(_):
+                    case .unknown:
                         return
                     default:
                         self.dragAmount = CGSize(width: point.translation.width, height: point.translation.height)
