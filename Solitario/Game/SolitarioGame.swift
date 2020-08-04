@@ -11,7 +11,7 @@ import Foundation
 struct SolitarioGame {
     var deckOfCards: [Card]
     var stacksOfCards: [[Card]]
-    var finalStacksOfCards: [Card?]  // Aquí es donde el usuario apilará las cartas para poder ganar
+    var aceStacksOfCards: [[Card]?]  // Aquí es donde el usuario apilará las cartas para poder ganar
     var score: Int = 0
     var moves: Int = 0
     
@@ -19,13 +19,13 @@ struct SolitarioGame {
         case unknown
         case deck
         case stacks(Int, Int?)  // Asocia el indice de la pila y el indice dentro de la pila
-        case finalStacks(Int)  // Asocia el indice de la pila final
+        case aceStacks(Int)  // Asocia el indice de la pila de aces
     }
     
     init() {
         deckOfCards = [Card]()
         stacksOfCards = [[Card]]()
-        finalStacksOfCards = [Card?](repeating: nil, count: 4)
+        aceStacksOfCards = [[Card]?](repeating: nil, count: 4)
         
         let suits: [Suit] = [.clubs, .diamonds, .hearts, .spades]
         
@@ -74,17 +74,28 @@ struct SolitarioGame {
             let newCard = Card(rank: card.rank.value, suit: card.suit, isFaceUp: true, location: .stacks(stackIndex, endIndex))
             stacksOfCards[stackIndex].append(newCard)
             score += 5
-        case .finalStacks(let finalStackIndex):
-            if let cardOnTop = finalStacksOfCards[finalStackIndex] {
+        case .aceStacks(let aceStackIndex):
+            if let aceStack = aceStacksOfCards[aceStackIndex] {
+                let cardOnTop = aceStack[aceStack.endIndex - 1]
                 if cardOnTop.suit != card.suit { return }
                 if cardOnTop.rank.value < card.rank.value - 1 { return }
+                aceStacksOfCards[aceStackIndex]!.append(card)
             } else {
                 // La pila está vacía
                 if card.rank != .ace { return }
+                aceStacksOfCards[aceStackIndex] = [card]
             }
-            finalStacksOfCards[finalStackIndex] = card
-            finalStacksOfCards[finalStackIndex]?.location = .finalStacks(finalStackIndex)
-            score += 10
+            print(aceStacksOfCards[aceStackIndex]!.count)
+//            if let cardOnTop = aceStacksOfCards[aceStackIndex] {
+//                if cardOnTop.suit != card.suit { return }
+//                if cardOnTop.rank.value < card.rank.value - 1 { return }
+//            } else {
+//                // La pila está vacía
+//                if card.rank != .ace { return }
+//            }
+//            aceStacksOfCards[aceStackIndex] = card
+//            aceStacksOfCards[aceStackIndex]?.location = .aceStacks(aceStackIndex)
+//            score += 10
         default:
             print("wtf?")  // Si llega aquí, me corto un huevo
             return
@@ -99,7 +110,6 @@ struct SolitarioGame {
             if !stacksOfCards[stackIndex].isEmpty {
                 let endIndex = stacksOfCards[stackIndex].endIndex - 1
                 stacksOfCards[stackIndex][endIndex].isFaceUp = true
-//                SoundPlayer.play(sound: .flip)
                 // TODO: Hacer funcionar el reproductor de sonidos
             }
         case .deck:

@@ -1,5 +1,5 @@
 //
-//  FinalStackView.swift
+//  AceStackView.swift
 //  Solitario
 //
 //  Created by Negro on 11/07/20.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct FinalStackView: View {
+struct AceStackView: View {
     @EnvironmentObject var game: EmojiSolitarioGame
     
     var boardSize: CGSize
@@ -33,15 +33,22 @@ struct FinalStackView: View {
                .font(.custom("", size: self.boardSize.width / 15))
                .foregroundColor(Color.white)
                .opacity(0.3)
-            if game.finalStacksOfCards[stackIndex] != nil {
-                CardView(card: game.finalStacksOfCards[stackIndex]!, in: self.boardSize)
+            if game.aceStacksOfCards[stackIndex] != nil {
+                ZStack {
+                    ForEach(game.aceStacksOfCards[stackIndex]!.indices, id: \.self) { cardIndex in
+                        CardView(
+                            card: self.game.aceStacksOfCards[self.stackIndex]![cardIndex],
+                            in: self.boardSize
+                        )
+                    }
+                }
             }
        }
        .overlay(
            GeometryReader { geometry in
                Color.clear
                    .onAppear {
-                       self.game.finalStackFrames[self.stackIndex] = geometry.frame(in: .global)
+                       self.game.aceStackFrames[self.stackIndex] = geometry.frame(in: .global)
                    }
            }
        )

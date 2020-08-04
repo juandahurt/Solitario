@@ -28,7 +28,7 @@ struct BoardView: View {
                             VStack(alignment: .center, spacing: 10) {
                                 Spacer()
                                 ForEach(0..<4) { stackIndex in
-                                    FinalStackView(in: geometry.size, stackIndex: stackIndex)
+                                    AceStackView(in: geometry.size, stackIndex: stackIndex)
                                 }
                                 Spacer()
                             }

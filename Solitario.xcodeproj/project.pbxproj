@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8203896224BA59960068FEC0 /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8203896124BA59960068FEC0 /* DeckView.swift */; };
-		8203896424BA59B70068FEC0 /* FinalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8203896324BA59B70068FEC0 /* FinalStackView.swift */; };
+		8203896424BA59B70068FEC0 /* AceStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8203896324BA59B70068FEC0 /* AceStackView.swift */; };
 		82310B2B24CD006900846403 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82310B2A24CD006900846403 /* Rank.swift */; };
 		824DD98D24B5257500A48AB8 /* EmojiSolitarioGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824DD98C24B5257500A48AB8 /* EmojiSolitarioGame.swift */; };
 		824E8E2624D21C930016D25F /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824E8E2524D21C930016D25F /* MainMenuView.swift */; };
@@ -36,7 +36,7 @@
 
 /* Begin PBXFileReference section */
 		8203896124BA59960068FEC0 /* DeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckView.swift; sourceTree = "<group>"; };
-		8203896324BA59B70068FEC0 /* FinalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalStackView.swift; sourceTree = "<group>"; };
+		8203896324BA59B70068FEC0 /* AceStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AceStackView.swift; sourceTree = "<group>"; };
 		82310B2A24CD006900846403 /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
 		824DD98C24B5257500A48AB8 /* EmojiSolitarioGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiSolitarioGame.swift; sourceTree = "<group>"; };
 		824E8E2524D21C930016D25F /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainMenuView.swift; path = Solitario/Board/MainMenuView.swift; sourceTree = SOURCE_ROOT; };
@@ -153,7 +153,7 @@
 			children = (
 				824E8E2524D21C930016D25F /* MainMenuView.swift */,
 				82B11E9F24B66559005A7432 /* BoardView.swift */,
-				8203896324BA59B70068FEC0 /* FinalStackView.swift */,
+				8203896324BA59B70068FEC0 /* AceStackView.swift */,
 				82A09BA224B67FA0002AEDD9 /* StackView.swift */,
 				8203896124BA59960068FEC0 /* DeckView.swift */,
 				82CDA3DD24C8BBE500E0BB8F /* UserStatsView.swift */,
@@ -265,7 +265,7 @@
 				82F2153E24D0E59700EE69B1 /* MenuButton.swift in Sources */,
 				82CFE08B24D0CD1600DE4DFB /* SoundPlayer.swift in Sources */,
 				824DD98D24B5257500A48AB8 /* EmojiSolitarioGame.swift in Sources */,
-				8203896424BA59B70068FEC0 /* FinalStackView.swift in Sources */,
+				8203896424BA59B70068FEC0 /* AceStackView.swift in Sources */,
 				82CFE09024D0CE9800DE4DFB /* Sound.swift in Sources */,
 				8263C1A324B4CA1A001EF14F /* AppDelegate.swift in Sources */,
 				82CDA3DE24C8BBE600E0BB8F /* UserStatsView.swift in Sources */,

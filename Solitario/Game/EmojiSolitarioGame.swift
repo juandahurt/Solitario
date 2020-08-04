@@ -12,7 +12,7 @@ import SwiftUI
 class EmojiSolitarioGame: ObservableObject {
     @Published private var game = SolitarioGame()
     @Published var stacksFrames = [CGRect](repeating:  .zero, count: 7)
-    @Published var finalStackFrames = [CGRect](repeating: .zero, count: 4)
+    @Published var aceStackFrames = [CGRect](repeating: .zero, count: 4)
     @Published var isMenuActive = true
     
     func newGame() {
@@ -26,8 +26,8 @@ class EmojiSolitarioGame: ObservableObject {
     func drop(card: Card, at location: CGPoint) {
         if let stackIndex = stacksFrames.firstIndex(where: { $0.contains(location) }) {
             game.drop(card: card, at: .stacks(stackIndex, nil))
-        } else if let finalStackIndex = finalStackFrames.firstIndex(where: { $0.contains(location) }) {
-            game.drop(card: card, at: .finalStacks(finalStackIndex))
+        } else if let finalStackIndex = aceStackFrames.firstIndex(where: { $0.contains(location) }) {
+            game.drop(card: card, at: .aceStacks(finalStackIndex))
         }
     }
     
@@ -39,8 +39,8 @@ class EmojiSolitarioGame: ObservableObject {
         game.stacksOfCards
     }
     
-    var finalStacksOfCards: [Card?] {
-        game.finalStacksOfCards
+    var aceStacksOfCards: [[Card]?] {
+        game.aceStacksOfCards
     }
     
     var deckOfCards: [Card] {
