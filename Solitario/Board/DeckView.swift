@@ -13,6 +13,8 @@ struct DeckView: View {
     @State var deckIndex = -3
     @State var deckWasTapped = false
     
+    @State var isPresented = false
+    
     var boardSize: CGSize
     
     init(in boardSize: CGSize) {
@@ -33,18 +35,21 @@ struct DeckView: View {
                 }
                 .padding(.top)
             if deckWasTapped {
-                ForEach(deckIndex..<deckIndex+3, id: \.self) { cardIndex in
-                    VStack {
-                        if cardIndex < self.game.deckOfCards.count {
-                            CardView(card: self.game.deckOfCards[cardIndex], onEnded: self.game.drop, in: self.boardSize)
-                        } else {
-                            EmptyView()
+                VStack {
+                    ForEach(deckIndex..<deckIndex+3, id: \.self) { cardIndex in
+                        ZStack {
+                            if cardIndex < self.game.deckOfCards.count {
+                                CardView(card: self.game.deckOfCards[cardIndex], onEnded: self.game.drop, in: self.boardSize)
+                                    .animation(Animation.linear.delay(Double(self.deckIndex - cardIndex) * 0.6))
+                            } else {
+                                EmptyView()
+                            }
                         }
                     }
                 }
-            } else {
-                Spacer()
             }
+            Rectangle() //  Para que el mazo se quede en su sitio
+                .opacity(0)
         }
             .frame(maxWidth: boardSize.width / 9, maxHeight: boardSize.height)
             .background(Color("DarkGreen"))

@@ -11,7 +11,7 @@ import SwiftUI
 struct RainingCards: View {
     var screenSize: CGSize
     
-    @State var numberOfCards = 40
+    var numberOfCards = 40
     @State var isPresented = false
     
     var body: some View {

@@ -14,32 +14,33 @@ struct BoardView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                Group {
-                    VStack(alignment: .leading, spacing: 0) {
-                        UserStatsView(in: geometry.size)
-                        HStack(alignment: .top, spacing: 0) {
-                            DeckView(in: geometry.size)
-                            HStack {
-                                ForEach(self.game.stacksOfCards.indices) { stackIndex in
-                                    StackView(in: geometry.size, stackIndex: stackIndex)
+                if !self.game.isMenuActive {
+                    Group {
+                        VStack(alignment: .leading, spacing: 0) {
+                            UserStatsView(in: geometry.size)
+                            HStack(alignment: .top, spacing: 0) {
+                                DeckView(in: geometry.size)
+                                HStack {
+                                    ForEach(self.game.stacksOfCards.indices) { stackIndex in
+                                        StackView(in: geometry.size, stackIndex: stackIndex)
+                                    }
                                 }
-                            }
-                                .padding(.top)
-                            VStack(alignment: .center, spacing: 10) {
-                                Spacer()
-                                ForEach(0..<4) { stackIndex in
-                                    AceStackView(in: geometry.size, stackIndex: stackIndex)
+                                    .padding(.top)
+                                VStack(alignment: .center, spacing: 10) {
+                                    Spacer()
+                                    ForEach(0..<4) { stackIndex in
+                                        AceStackView(in: geometry.size, stackIndex: stackIndex)
+                                    }
+                                    Spacer()
                                 }
-                                Spacer()
+                                .frame(maxWidth: geometry.size.width / 9, maxHeight: geometry.size.height)
+                                .background(Color("DarkGreen"))
                             }
-                            .frame(maxWidth: geometry.size.width / 9, maxHeight: geometry.size.height)
-                            .background(Color("DarkGreen"))
                         }
                     }
+                } else {
+                    MainMenuView(screenSize: geometry.size)
                 }
-                    .opacity(self.game.isMenuActive ? 0 : 1)
-                MainMenuView(screenSize: geometry.size)
-                    .opacity(self.game.isMenuActive ? 1 : 0)
             }
                 .background(Color.green)
         }
